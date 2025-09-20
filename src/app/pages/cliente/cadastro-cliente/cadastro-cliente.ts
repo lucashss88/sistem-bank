@@ -38,6 +38,7 @@ export class CadastroCliente implements OnInit {
       this.clienteService.pesquisarPorId(this.route.snapshot.params["id"]).subscribe(
         cliente => {
           this.formGroup.patchValue(cliente)
+          this.editarCliente(cliente)
         }
       )
     }
@@ -63,6 +64,28 @@ export class CadastroCliente implements OnInit {
           icon: 'error',
           title: 'Oops...',
           text: 'Erro ao cadastrar cliente!',
+        })
+      }})
+  }
+
+  editarCliente(cliente: Cliente) {
+    this.clienteService.atualizar(cliente).subscribe({
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Sucesso',
+          text: 'Cliente editado com sucesso!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.router.navigate(['/cliente'])
+      },
+      error: (error) => {
+        console.error(error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Erro ao editar cliente!',
         })
       }})
   }
