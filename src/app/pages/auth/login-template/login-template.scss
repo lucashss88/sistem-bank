@@ -13,11 +13,12 @@
     background-color: #F0F2F5;
     width: 50%;
     height: 100%;
+    
 }
 
 
 .image{
-    background-color: #1A468E;
+    background-color: #03B304;
     width: 50%;
     height: 100%;
     display: flex;
@@ -38,11 +39,11 @@
 
 .logo{
     display: block;
-    margin-left: 160px;
-    margin-right: 160px;
+    margin: auto;
     margin-top: 80px;
+    text-align: center;
     img{
-        width: 150px;
+        width: 50px;
     }
 }
 
